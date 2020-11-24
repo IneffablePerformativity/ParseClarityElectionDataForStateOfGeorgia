@@ -1,0 +1,2 @@
+Across the 159 localities of StateOfGeorgia, the BIDEN vote differs from other DEMOCRAT races as: mean = PLUS 1.91% of total votes in locality, with standard deviation = 0.36%.
+Across the 159 localities of StateOfGeorgia, the TRUMP vote differs from other REPUBLICAN races as: mean = PLUS 0.12% of total votes in locality, with standard deviation = 0.52%.
