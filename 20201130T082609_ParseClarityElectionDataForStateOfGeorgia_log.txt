@@ -1,0 +1,101 @@
+OMITTING where totalBallots == 0 in Baker
+OMITTING where totalBallots == 0 in Chattahoochee
+OMITTING where totalBallots == 0 in Clay
+OMITTING where totalBallots == 0 in Echols
+OMITTING where totalBallots == 0 in Glascock
+OMITTING where totalBallots == 0 in Quitman
+OMITTING where totalBallots == 0 in Stewart
+OMITTING where totalBallots == 0 in Taliaferro
+OMITTING where totalBallots == 0 in Webster
+Across the 150 localities of StateOfGeorgia, the BIDEN vote differs from other DEMOCRAT races as: mean = PLUS 1.13% of total votes in locality, with standard deviation = 2.21%.
+Across the 150 localities of StateOfGeorgia, the TRUMP vote differs from other REPUBLICAN races as: mean = PLUS 0.73% of total votes in locality, with standard deviation = 2.25%.
+possibleConclusionText BIDEN BONUS = PLUS 1.13%, StdDev 2.21; TRUMP BONUS = PLUS 0.73%, StdDev 2.25
+MARKING WHITE X ON [Terrell] for shifting 441 votes.
+MARKING WHITE X ON [Marion] for shifting 348 votes.
+MARKING WHITE X ON [Early] for shifting 493 votes.
+MARKING WHITE X ON [Schley] for shifting 215 votes.
+MARKING WHITE X ON [Sumter] for shifting 998 votes.
+MARKING WHITE X ON [Seminole] for shifting 297 votes.
+MARKING WHITE X ON [Lee] for shifting 1248 votes.
+MARKING WHITE X ON [Decatur] for shifting 853 votes.
+MARKING WHITE X ON [Grady] for shifting 754 votes.
+MARKING WHITE X ON [Crawford] for shifting 421 votes.
+MARKING WHITE X ON [Taylor] for shifting 253 votes.
+MARKING WHITE X ON [Dooly] for shifting 254 votes.
+MARKING WHITE X ON [Dougherty] for shifting 1855 votes.
+MARKING WHITE X ON [Talbot] for shifting 183 votes.
+MARKING WHITE X ON [Macon] for shifting 227 votes.
+MARKING WHITE X ON [Crisp] for shifting 366 votes.
+MARKING WHITE X ON [Chattooga] for shifting 409 votes.
+MARKING WHITE X ON [Peach] for shifting 471 votes.
+MARKING WHITE X ON [Gordon] for shifting 775 votes.
+MARKING WHITE X ON [Brantley] for shifting 204 votes.
+MARKING WHITE X ON [Murray] for shifting 361 votes.
+MARKING WHITE X ON [JeffDavis] for shifting 132 votes.
+MARKING WHITE X ON [Douglas] for shifting 1390 votes.
+MARKING WHITE X ON [Mitchell] for shifting 968 votes.
+MARKING AN X ON [Elbert] for shifting 183 votes.
+MARKING AN X ON [Long] for shifting 123 votes.
+MARKING AN X ON [Brooks] for shifting 155 votes.
+MARKING AN X ON [Jefferson] for shifting 171 votes.
+MARKING AN X ON [Lamar] for shifting 202 votes.
+MARKING AN X ON [DeKalb] for shifting 8495 votes.
+MARKING AN X ON [Wilkinson] for shifting 111 votes.
+MARKING AN X ON [Dodge] for shifting 188 votes.
+MARKING AN X ON [Jones] for shifting 350 votes.
+MARKING AN X ON [Cook] for shifting 165 votes.
+MARKING AN X ON [Candler] for shifting 105 votes.
+MARKING AN X ON [McDuffie] for shifting 256 votes.
+MARKING AN X ON [Hall] for shifting 2320 votes.
+MARKING AN X ON [Meriwether] for shifting 278 votes.
+MARKING AN X ON [Warren] for shifting 68 votes.
+MARKING AN X ON [Colquitt] for shifting 435 votes.
+MARKING AN X ON [Lanier] for shifting 98 votes.
+MARKING AN X ON [Gwinnett] for shifting 11361 votes.
+MARKING AN X ON [Putnam] for shifting 327 votes.
+MARKING AN X ON [Evans] for shifting 117 votes.
+MARKING AN X ON [Spalding] for shifting 838 votes.
+MARKING AN X ON [Effingham] for shifting 879 votes.
+MARKING AN X ON [Jenkins] for shifting 97 votes.
+MARKING WHITE X ON [Miller] for shifting 320 votes.
+MARKING AN X ON [Cobb] for shifting 11769 votes.
+MARKING AN X ON [Emanuel] for shifting 285 votes.
+MARKING AN X ON [Burke] for shifting 322 votes.
+MARKING AN X ON [Wilkes] for shifting 159 votes.
+MARKING AN X ON [Carroll] for shifting 1757 votes.
+MARKING AN X ON [Liberty] for shifting 691 votes.
+MARKING AN X ON [Bulloch] for shifting 981 votes.
+MARKING AN X ON [Clinch] for shifting 93 votes.
+MARKING AN X ON [Screven] for shifting 221 votes.
+MARKING AN X ON [Pulaski] for shifting 136 votes.
+MARKING AN X ON [BenHill] for shifting 225 votes.
+MARKING AN X ON [Upson] for shifting 450 votes.
+MARKING AN X ON [Lowndes] for shifting 1684 votes.
+MARKING AN X ON [Baldwin] for shifting 704 votes.
+MARKING AN X ON [Thomas] for shifting 871 votes.
+MARKING AN X ON [Fulton] for shifting 21131 votes.
+MARKING AN X ON [McIntosh] for shifting 269 votes.
+MARKING AN X ON [Houston] for shifting 3025 votes.
+MARKING AN X ON [Glynn] for shifting 1709 votes.
+MARKING AN X ON [Morgan] for shifting 478 votes.
+MARKING AN X ON [Cherokee] for shifting 5994 votes.
+MARKING AN X ON [Hancock] for shifting 172 votes.
+MARKING AN X ON [Forsyth] for shifting 5754 votes.
+MARKING AN X ON [Harris] for shifting 904 votes.
+MARKING AN X ON [Coweta] for shifting 3640 votes.
+MARKING AN X ON [Richmond] for shifting 4458 votes.
+MARKING AN X ON [Bryan] for shifting 1126 votes.
+MARKING AN X ON [Fayette] for shifting 3904 votes.
+MARKING AN X ON [Columbia] for shifting 4557 votes.
+MARKING AN X ON [Clarke] for shifting 2940 votes.
+MARKING AN X ON [Troup] for shifting 1836 votes.
+MARKING AN X ON [Chatham] for shifting 8214 votes.
+MARKING AN X ON [Greene] for shifting 722 votes.
+MARKING AN X ON [Tift] for shifting 1160 votes.
+MARKING AN X ON [Turner] for shifting 284 votes.
+MARKING AN X ON [Oconee] for shifting 2019 votes.
+MARKING WHITE X ON [Randolph] for shifting 421 votes.
+MARKING WHITE X ON [Calhoun] for shifting 433 votes.
+finalConclusion = THE BLACK X'S (SORTED TO THE RIGHT) MARK 59 BIGGEST SPOTS OF THEFT OVER 2% WORTH 121966 VOTES. SEE LOG FOR LOCALITY NAMES.
+flipsideConclusion = FOR FAIRNESS, ANY WHITE X'S (SORTED TO THE LEFT) MARK 27 OPPOSITE BONUSES OVER 2% FAVORING TRUMP WORTH 15090 VOTES.
+Note that all items omitted above affect the CSV as well as the PNG.

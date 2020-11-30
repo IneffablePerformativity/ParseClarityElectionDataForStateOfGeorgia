@@ -102,6 +102,7 @@ namespace ParseClarityElectionDataForStateOfGeorgia
 		
 		// Now generated on the fly as I mark the Xs:
 		static string finalConclusion = "FWIW, The CISR Rumor Control page says undervote (here 'Bonus') is not a sign of fraud. YMMV.";
+		static string flipsideConclusion = "FWIW, The CISR Rumor Control page says undervote (here 'Bonus') is not a sign of fraud. YMMV.";
 
 		static bool discardStraightPartyVotes = false; // affects bonus, csv, more than plot
 
@@ -284,12 +285,20 @@ namespace ParseClarityElectionDataForStateOfGeorgia
 		
 		// N.B. At current 21 graticules, 200K = 4%
 		// but at 11 graticules, 200K = 2%
-		static int XPct = 2;
+		
+		// At 2%, I only found about 7K net shifted votes in Georgia,
+		// but changing the fraud detection threshold to + AND - 1%,
+		// summed up 92K net shifted votes, some SEVEN TIMES more
+		// than the Biden 'win' margin, which was only 13K votes!
+		static int XPct = 1;
 		static int XMarksTheSpotThreshold = XPct * (do21gratsfspm10 ? 50000 : 100000);
 
-		static int countTheXMarksTheSpot = 0;
-
-		static int effectOnVotes = 0;
+		static int countTheBidenXMarksTheSpot = 0;
+		static int effectOfBidenBonusOnVotes = 0;
+		
+		// 2020-11-30 it is only appropriate to count and display the meagre flip side:
+		static int countTheTrumpXMarksTheSpot = 0;
+		static int effectOfTrumpBonusOnVotes = 0;
 		
 		public static void Main(string[] args)
 		{
@@ -1202,10 +1211,12 @@ namespace ParseClarityElectionDataForStateOfGeorgia
 					
 					// These scalled-to-ppm bonuses are still +/- around ZERO here:
 					
-					if(bonusToTrump < -XMarksTheSpotThreshold
-					   && bonusToBiden > XMarksTheSpotThreshold)
+					// wrong to order by differece, but here require symmetry:
+					// if(bonusToTrump < -XMarksTheSpotThreshold
+					//   && bonusToBiden > XMarksTheSpotThreshold)
+					if(bonusToBiden - bonusToTrump > 2   *XMarksTheSpotThreshold)
 					{
-						countTheXMarksTheSpot ++;
+						countTheBidenXMarksTheSpot ++;
 						
 						// The faster I run, the behinder I get!
 
@@ -1233,9 +1244,8 @@ namespace ParseClarityElectionDataForStateOfGeorgia
 						// Hand running ballots=378234, BidenBonus=770135, TrumpBonus=395620,
 						// I get a product here of 12,538,078,866, about 6 times the int.MaxValue.
 
-						int netShiftOfVotes = (int)((long)(ppmBonusToBiden-ppmBonusToTrump) * (long)grainBallots / 1000000L);
-
-						effectOnVotes += netShiftOfVotes;
+						int netShiftForBidenVotes = (int)((long)(ppmBonusToBiden-ppmBonusToTrump) * (long)grainBallots / 1000000L);
+						effectOfBidenBonusOnVotes += netShiftForBidenVotes;
 						
 						// give me a vertical to emphasize the two bonuses.
 						// Actually, draw an X to mark the spot:
@@ -1244,21 +1254,24 @@ namespace ParseClarityElectionDataForStateOfGeorgia
 						gBmp.DrawLine(blackXPen, midBarX2, bidenBonusY, midBarX1, trumpBonusY); // pen, x1, y1, x2, y2
 						
 						// mention where it happened
-						say("MARKING AN X ON [" + fields[10] + "] for shifting " + netShiftOfVotes + " votes.");
+						say("MARKING AN X ON [" + fields[10] + "] for shifting " + netShiftForBidenVotes + " votes.");
 					}
 					
 					// just for balance, make white X's for such a "Trump Theft".
 					// I have no counter or sum for these, visual plot mark only.
 
-					if(bonusToBiden < -XMarksTheSpotThreshold
-					   && bonusToTrump > XMarksTheSpotThreshold)
+					if(bonusToTrump - bonusToBiden > 2   *XMarksTheSpotThreshold)
 					{
+						countTheTrumpXMarksTheSpot ++;
 						
 						int ppmBonusToTrump = (int)((int.Parse(fields[7]) - 500000) / (double)scaleFactor);
 						int ppmBonusToBiden = (int)((int.Parse(fields[8]) - 500000) / (double)scaleFactor);
-						int netShiftOfVotes = (ppmBonusToBiden-ppmBonusToTrump) * grainBallots / 1000000;
+						int netShiftForTrumpVotes = (int)((long)(ppmBonusToTrump-ppmBonusToBiden) * (long)grainBallots / 1000000L);
+						effectOfTrumpBonusOnVotes += netShiftForTrumpVotes;
 						gBmp.DrawLine(whiteXPen, midBarX1, bidenBonusY, midBarX2, trumpBonusY); // pen, x1, y1, x2, y2
 						gBmp.DrawLine(whiteXPen, midBarX2, bidenBonusY, midBarX1, trumpBonusY); // pen, x1, y1, x2, y2
+
+						say("MARKING WHITE X ON [" + fields[10] + "] for shifting " + netShiftForTrumpVotes + " votes.");
 					}
 
 					
@@ -1274,6 +1287,7 @@ namespace ParseClarityElectionDataForStateOfGeorgia
 
 				// Republican RED looks nice for this bold need:
 				Brush conclusionRedTextBrush = new SolidBrush(Color.FromArgb(233, 20, 29));
+				Brush flipsideWhiteTextBrush = new SolidBrush(Color.White);
 				
 				Font bigFont = new Font("Arial Black", 80);
 				int bigFontHeight = (int)bigFont.GetHeight(gBmp);
@@ -1303,14 +1317,21 @@ namespace ParseClarityElectionDataForStateOfGeorgia
 				// 25 would be top row, but lands on PA Bucks Biden Bonus
 				// but now, old 225 is obscured by POTUS lines in Georgia
 
-				finalConclusion = "THE BLACK X'S (SORTED TO THE RIGHT) MARK " + countTheXMarksTheSpot + " BIGGEST SPOTS OF THEFT OVER " + (2*XPct) + "% WORTH " + effectOnVotes + " VOTES. SEE LOG FOR LOCALITY NAMES.";
+				finalConclusion = "THE BLACK X'S (SORTED TO THE RIGHT) MARK " + countTheBidenXMarksTheSpot + " BIGGEST SPOTS OF THEFT OVER " + (2*XPct) + "% WORTH " + effectOfBidenBonusOnVotes + " VOTES. SEE LOG FOR LOCALITY NAMES.";
 				say("finalConclusion = " + finalConclusion);
 				int YQEDLabel = nBorder + 25 * plotSizeY / 1000 - conclusionFont.Height / 2;
 				string QEDLabel = finalConclusion;
 				gBmp.DrawString(QEDLabel, conclusionFont, conclusionRedTextBrush, (imageSizeX-gBmp.MeasureString(QEDLabel, conclusionFont).Width) / 2, YQEDLabel);
 
+				// Make room for this new white line next:
+
+				flipsideConclusion = "FOR FAIRNESS, ANY WHITE X'S (SORTED TO THE LEFT) MARK " + countTheTrumpXMarksTheSpot + " OPPOSITE BONUSES OVER " + (2*XPct) + "% FAVORING TRUMP WORTH " + effectOfTrumpBonusOnVotes + " VOTES.";
+				say("flipsideConclusion = " + flipsideConclusion);
+				int YDEQLabel = nBorder + 75 * plotSizeY / 1000 - conclusionFont.Height / 2;
+				string DEQLabel = flipsideConclusion;
+				gBmp.DrawString(DEQLabel, conclusionFont, flipsideWhiteTextBrush, (imageSizeX-gBmp.MeasureString(DEQLabel, conclusionFont).Width) / 2, YDEQLabel);
 				
-				int yMeaningLabel = nBorder + 75 * plotSizeY / 1000 - smallFontHeight / 2;
+				int yMeaningLabel = nBorder + 125 * plotSizeY / 1000 - smallFontHeight / 2;
 				string howDone = "INVALID";
 				switch(howOther)
 				{
@@ -1330,7 +1351,7 @@ namespace ParseClarityElectionDataForStateOfGeorgia
 				gBmp.DrawString(MeaningLabel, smallFont, blackTextBrush, (imageSizeX-gBmp.MeasureString(MeaningLabel, smallFont).Width) / 2, yMeaningLabel);
 
 				
-				int yFraudLabel = nBorder + 125 * plotSizeY / 1000 - smallFontHeight / 2;
+				int yFraudLabel = nBorder + 175 * plotSizeY / 1000 - smallFontHeight / 2;
 				string FraudLabel = "ELECTION FRAUD CLUE WHENEVER RED AND/OR BLUE LINES SYSTEMATICALLY DO NOT TRACK THEIR AREA EDGE.";
 				gBmp.DrawString(FraudLabel, smallFont, blackTextBrush, (imageSizeX-gBmp.MeasureString(FraudLabel, smallFont).Width) / 2, yFraudLabel);
 
